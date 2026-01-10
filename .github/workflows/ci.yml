@@ -9,6 +9,7 @@ on:
       - "**.tf"
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   # JOB 1: Run Python Tests

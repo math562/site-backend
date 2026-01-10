@@ -1,3 +1,20 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+
+  backend "s3" {
+    bucket         = "dkong-terraform-state"
+    key            = "resume-backend/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
+
 provider "aws" {
     region = "us-east-2"
 }
